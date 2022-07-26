@@ -40,6 +40,20 @@ Population results for 2010 County X race/eth. Similar to the Pl 94-171
 data, but with the “other” race/eth category redistributed to the main
 OMB race/eth categories.
 
+### [2020 and 2021 OFM County X Age X Sex Population Estimates](https://ofm.wa.gov/washington-data-research/population-demographics/population-estimates/estimates-april-1-population-age-sex-race-and-hispanic-origin)
+
+Population results from OFM based off of Census 2020 for each county by
+5ish year age groups and sex. These estimates potentially feature
+additional bits of adjustment (relative to the Census 2020 results) and
+improvement– beyond the additional age fidelity.
+
+### [2020 and 2021 OFM County X Race/Eth Estimates](https://ofm.wa.gov/washington-data-research/population-demographics/population-estimates/estimates-april-1-population-age-sex-race-and-hispanic-origin)
+
+Population results from OFM based off of Census 2020 for each county by
+the 7 main OMB race/ethnicity groups. These estimates are corrected to
+remove the “other” race category and potentially feature additional bits
+of adjustment (relative to the Census 2020 results) and improvement.
+
 ## Process
 
 ### 1. Compile 2020 PL 94-171 data
@@ -79,6 +93,11 @@ multi-race individual, and the effect of these factors on the validity
 on carrying forward the MARS assignments from 2010 is unknown, However,
 it is still probably better to use the 2010 scalars rather than other
 assignment approaches (e.g. relative to category size).
+
+Note: This method could probably be improved by taking into account the
+age categories MARS reports as well as aging folks through. Maybe fit a
+model to impute the people who have been born since the last census.
+Compare reassignment percentages by age group
 
 ### 3. Create Frankenpop
 
@@ -125,7 +144,7 @@ within a block that did not exist prior to the redistribution may be
 created. This is most notable in small population blocks where the
 entire population is reported as “other.”
 
-#### Rake OFM estimates to Census 2020 results
+#### Rake OFM estimates to Census 2020 results (e.g. Frankenpop)
 
 With the OFM estimates transferred to 2020 geographies and the Census
 data adjusted to redistribute the “other” race/eth category to the
@@ -140,12 +159,38 @@ the Census data suggests the presence of given race/eth X age group but
 the OFM data does not have any corresponding age X gender results for
 the given race/eth X age group.
 
+#### Rake to County level OFM estimates
+
+Once the age/sex patterns from OFM’s SADE estimates have been raked to
+match (as best as possible) the 2020 Census results, these results are
+[multidimensionally raked](rake_and_output.R) to match the Age X Sex X
+County and Race/Eth X County estimates. The raking is further stratified
+by year and year Y+1 is dependent on the results from year Y (e.g. 2021
+starts with the 2020 raked results). However, I’m not actually sure that
+dependency is necessary (although it doesn’t really hurt anything) since
+the withing group patterns being raked to the targets are stable by
+year.
+
 ## Output
 
 Population estimates for every 2020 census block X single year age X
-gender X race/eth in Washington state. OFM data provides the age/sex
-pattern while the geographic and race/eth patterns, as well as the
-population counts, derive from Census 2020 PL 94-171 results.
+gender X race/eth in Washington state for 2020 and 2021. OFM data
+provides the block level age/sex pattern as well as County level age,
+sex, and race/eth controls while the geographic patterns (most notably
+race/eth) derive from Census 2020 PL 94-171 results.
 
-The output format is currently an `.rds` file, but could be converted to
-other formats.
+The output datasets are unique by Census block, race/eth, gender, and
+age.
+
+| Column Name | Description                                                                                                                                             |
+|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| geo_id20    | FIPS code for the census block                                                                                                                          |
+| race_eth    | Race/ethnicity in 7 groups. Hispanic is treated as a race and therefore all other groups should be considered “non-Hispanic”                            |
+| gender      | Gender/sex at birth. Defer to OFM’s description/depiction of sex/gender for the correct interpretation.                                                 |
+| age         | Single year age                                                                                                                                         |
+| county      | FIPS code for county                                                                                                                                    |
+| tract       | FIPS code for tract                                                                                                                                     |
+| ofmpop20    | Population from OFM for 2020 (based on SADE estimates using 2010 census results)                                                                        |
+| fpop20      | Frankenpop estimates where ofmpop20 is raked to Census 2020 data.                                                                                       |
+| rpop2020    | Raked Frankenpop estimates to match updated County X age X sex and race/eth X County breakdowns provided by OFM. Use this column as population for 2020 |
+| rpop2021    | Raked Frankenpop estimates for 2021 using the same method as rpop2020 (just a different year).                                                          |

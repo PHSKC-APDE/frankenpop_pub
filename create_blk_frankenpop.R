@@ -211,9 +211,10 @@ mrgn[is.na(fpop), fpop := 0]
 
 summary(mrgn[pop!=0, pop-fpop])
 
-grid = grid[fpop>0]
+grid = grid[fpop>0 | pop >0]
 grid[, sum(fpop)] - redist[, sum(pop)]
 grid = grid[, .(county, tract, geo_id20, race_eth, gender, age, pop, fpop)]
 saveRDS(grid, file.path(out, 'frankenblkpop_wa.rds'))
+
 
 
