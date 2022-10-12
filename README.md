@@ -168,7 +168,7 @@ County and Race/Eth X County estimates. The raking is further stratified
 by year and year Y+1 is dependent on the results from year Y (e.g. 2021
 starts with the 2020 raked results). However, I’m not actually sure that
 dependency is necessary (although it doesn’t really hurt anything) since
-the withing group patterns being raked to the targets are stable by
+the within group patterns being raked to the targets are stable by
 year.
 
 ## Output
