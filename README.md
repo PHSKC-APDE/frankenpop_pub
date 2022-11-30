@@ -1,4 +1,41 @@
 
+-   <a href="#frankenpop" id="toc-frankenpop">Frankenpop</a>
+    -   <a href="#about" id="toc-about">About</a>
+    -   <a href="#code-run-order" id="toc-code-run-order">Code Run Order:</a>
+    -   <a href="#inputs" id="toc-inputs">Inputs</a>
+        -   <a href="#ofm-sade-population-estimates"
+            id="toc-ofm-sade-population-estimates"><span>OFM SADE Population
+            Estimates</span></a>
+        -   <a href="#census-2020-pl-94-171"
+            id="toc-census-2020-pl-94-171"><span>Census 2020 PL 94-171</span></a>
+        -   <a href="#census-2020-block-relationship-file"
+            id="toc-census-2020-block-relationship-file"><span>Census 2020 block
+            relationship file</span></a>
+        -   <a href="#census-2010-pl-94-171"
+            id="toc-census-2010-pl-94-171"><span>Census 2010 Pl 94-171</span></a>
+        -   <a href="#census-2010-mars-population-estimates"
+            id="toc-census-2010-mars-population-estimates"><span>Census 2010 MARS
+            population estimates</span></a>
+        -   <a href="#and-2021-ofm-county-x-age-x-sex-population-estimates"
+            id="toc-and-2021-ofm-county-x-age-x-sex-population-estimates"><span>2020
+            and 2021 OFM County X Age X Sex Population Estimates</span></a>
+        -   <a href="#and-2021-ofm-county-x-raceeth-estimates"
+            id="toc-and-2021-ofm-county-x-raceeth-estimates"><span>2020 and 2021 OFM
+            County X Race/Eth Estimates</span></a>
+        -   <a href="#ofm-saep-estimates-for-2020-census-blocks"
+            id="toc-ofm-saep-estimates-for-2020-census-blocks"><span>2020 - 2022 OFM
+            SAEP estimates for 2020 census blocks</span></a>
+    -   <a href="#process" id="toc-process">Process</a>
+        -   <a href="#compile-2020-pl-94-171-data"
+            id="toc-compile-2020-pl-94-171-data">1. Compile 2020 PL 94-171 data</a>
+        -   <a href="#generate-mars-splits-from-2010-data"
+            id="toc-generate-mars-splits-from-2010-data">2. Generate MARS splits
+            from 2010 data</a>
+        -   <a href="#create-frankenpop" id="toc-create-frankenpop">3. Create
+            Frankenpop</a>
+        -   <a href="#compile" id="toc-compile">4. Compile</a>
+    -   <a href="#output" id="toc-output">Output</a>
+
 # Frankenpop
 
 ## About
@@ -213,7 +250,7 @@ Frankenpop estimate. [The method is described in greater detail
 here.](fpop_bcast_simple_walkthrough.md) [The implementation can be
 found here.](backcast_pop.R)
 
-### Compile
+### 4. Compile
 
 Note: links in this section may be restricted to users with access to
 repositories on ADPE’s github. Email Daniel if you’d like access.
