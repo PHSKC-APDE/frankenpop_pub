@@ -1,0 +1,32 @@
+id,census_race
+1, White alone
+2, Black or African American alone
+3, American Indian and Alaska Native alone
+4, Asian alone
+5, Native Hawaiian and Other Pacific Islander alone
+6, White and Black or African American
+7, White and American Indian and Alaska Native
+8, White and Asian
+9, White and Native Hawaiian and Other Pacific Islander
+10, Black or African American and American Indian and Alaska Native
+11, Black or African American and Asian
+12, Black or African American and Native Hawaiian and Other Pacific Islander
+13, American Indian and Alaska Native and Asian
+14, American Indian and Alaska Native and Native Hawaiian and Other Pacific Islander
+15, Asian and Native Hawaiian and Other Pacific Islander
+16, White and Black or African American and American Indian and Alaska Native
+17, White and Black or African American and Asian
+18, White and Black or African American and Native Hawaiian and Other Pacific Islander
+19, White and American Indian and Alaska Native and Asian
+20, White and American Indian and Alaska Native and Native Hawaiian and Other Pacific Islander
+21, White and Asian and Native Hawaiian and Other Pacific Islander
+22, Black or African American and American Indian and Alaska Native and Asian
+23, Black or African American and American Indian and Alaska Native and Native Hawaiian and Other Pacific Islander
+24, Black or African American and Asian and Native Hawaiian and Other Pacific Islander
+25, American Indian and Alaska Native and Asian and Native Hawaiian and Other Pacific Islander
+26, White and Black or African American and American Indian and Alaska Native and Asian
+27, White and Black or African American and American Indian and Alaska Native and Native Hawaiian and Other Pacific Islander
+28, White and Black or African American and Asian and Native Hawaiian and Other Pacific Islander
+29, White and American Indian and Alaska Native and Asian and Native Hawaiian and Other Pacific Islander
+30, Black or African American and American Indian and Alaska Native and Asian and Native Hawaiian and Other Pacific Islander
+31, White and Black or African American and American Indian and Alaska Native and Asian and Native Hawaiian and Other Pacific Islander

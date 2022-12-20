@@ -4,8 +4,9 @@ library('data.table')
 library('censusapi')
 
 # 2010 MARS
-mars = fread("[OMITTED]/frankenpop/2010/stco-mr2010_mt_wy.csv")
-mrace = fread("[OMITTED]/frankenpop/2010/mars_race_cats.csv")
+base = file.path(Sys.getenv('OneDriveCommercial'))
+mars = fread(paste0(base, "/frankenpop/2010/stco-mr2010_mt_wy.csv"))
+mrace = fread(file.path(base, "frankenpop/2010/mars_race_cats.csv"))
 
 # Get the 2010 PL data from the census
 # all age pop by hispanic with other category P002001
