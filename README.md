@@ -294,4 +294,4 @@ Data dictionary for the block level results:
 | RaceMars97          | Up to 5 digit code indicating race. Structured as \[White\]\[Black\]\[AIAN\]\[Asian\]\[NHPI\]. For example: 10000 indicates White, 10100 indicates White and AIAN, and \[000\]10 indicates NHPI. |
 | Population          | Number of people                                                                                                                                                                                 |
 | Year                | FIPS code for tract                                                                                                                                                                              |
-| AgeGroup            | 0-99 single year of age, 100 for 100-104, 105 for 105 - 109, 110 for 100+                                                                                                                        |
+| AgeGroup            | 0-99 single year of age, 100 for 100-104, 105 for 105 - 109, 110 for 110+                                                                                                                        |
