@@ -1,65 +1,107 @@
 
--   <a href="#frankenpop" id="toc-frankenpop">Frankenpop</a>
-    -   <a href="#about" id="toc-about">About</a>
-    -   <a href="#code-run-order" id="toc-code-run-order">Code Run Order:</a>
-    -   <a href="#inputs" id="toc-inputs">Inputs</a>
-        -   <a href="#ofm-sade-population-estimates"
-            id="toc-ofm-sade-population-estimates"><span>OFM SADE Population
-            Estimates</span></a>
-        -   <a href="#census-2020-pl-94-171"
-            id="toc-census-2020-pl-94-171"><span>Census 2020 PL 94-171</span></a>
-        -   <a href="#census-2020-block-relationship-file"
-            id="toc-census-2020-block-relationship-file"><span>Census 2020 block
-            relationship file</span></a>
-        -   <a href="#census-2010-pl-94-171"
-            id="toc-census-2010-pl-94-171"><span>Census 2010 Pl 94-171</span></a>
-        -   <a href="#census-2010-mars-population-estimates"
-            id="toc-census-2010-mars-population-estimates"><span>Census 2010 MARS
-            population estimates</span></a>
-        -   <a href="#and-2021-ofm-county-x-age-x-sex-population-estimates"
-            id="toc-and-2021-ofm-county-x-age-x-sex-population-estimates"><span>2020
-            and 2021 OFM County X Age X Sex Population Estimates</span></a>
-        -   <a href="#and-2021-ofm-county-x-raceeth-estimates"
-            id="toc-and-2021-ofm-county-x-raceeth-estimates"><span>2020 and 2021 OFM
-            County X Race/Eth Estimates</span></a>
-        -   <a href="#ofm-saep-estimates-for-2020-census-blocks"
-            id="toc-ofm-saep-estimates-for-2020-census-blocks"><span>2020 - 2022 OFM
-            SAEP estimates for 2020 census blocks</span></a>
-    -   <a href="#process" id="toc-process">Process</a>
-        -   <a href="#compile-2020-pl-94-171-data"
-            id="toc-compile-2020-pl-94-171-data">1. Compile 2020 PL 94-171 data</a>
-        -   <a href="#generate-mars-splits-from-2010-data"
-            id="toc-generate-mars-splits-from-2010-data">2. Generate MARS splits
-            from 2010 data</a>
-        -   <a href="#create-frankenpop" id="toc-create-frankenpop">3. Create
-            Frankenpop</a>
-        -   <a href="#compile" id="toc-compile">4. Compile</a>
-    -   <a href="#output" id="toc-output">Output</a>
+- <a href="#frankenpoppopulation-interim-estimates-pie"
+  id="toc-frankenpoppopulation-interim-estimates-pie">Frankenpop/Population
+  Interim Estimates (PIE)</a>
+  - <a href="#about" id="toc-about">About</a>
+    - <a href="#dimensions" id="toc-dimensions">Dimensions</a>
+    - <a href="#about-using-pie" id="toc-about-using-pie">About using PIE</a>
+    - <a href="#citation" id="toc-citation">Citation</a>
+    - <a href="#contact" id="toc-contact">Contact</a>
+  - <a href="#code-run-order" id="toc-code-run-order">Code Run Order:</a>
+  - <a href="#inputs" id="toc-inputs">Inputs</a>
+    - <a href="#ofm-sade-population-estimates"
+      id="toc-ofm-sade-population-estimates">OFM SADE Population Estimates</a>
+    - <a href="#census-2020-pl-94-171" id="toc-census-2020-pl-94-171">Census
+      2020 PL 94-171</a>
+    - <a href="#census-2020-block-relationship-file"
+      id="toc-census-2020-block-relationship-file">Census 2020 block
+      relationship file</a>
+    - <a href="#census-2010-pl-94-171" id="toc-census-2010-pl-94-171">Census
+      2010 Pl 94-171</a>
+    - <a href="#census-2010-mars-population-estimates"
+      id="toc-census-2010-mars-population-estimates">Census 2010 MARS
+      population estimates</a>
+    - <a href="#and-2021-ofm-county-x-age-x-sex-population-estimates"
+      id="toc-and-2021-ofm-county-x-age-x-sex-population-estimates">2020 and
+      2021 OFM County X Age X Sex Population Estimates</a>
+    - <a href="#and-2021-ofm-county-x-raceeth-estimates"
+      id="toc-and-2021-ofm-county-x-raceeth-estimates">2020 and 2021 OFM
+      County X Race/Eth Estimates</a>
+    - <a href="#ofm-saep-estimates-for-2020-census-blocks"
+      id="toc-ofm-saep-estimates-for-2020-census-blocks">2020 - 2022 OFM SAEP
+      estimates for 2020 census blocks</a>
+  - <a href="#process" id="toc-process">Process</a>
+    - <a href="#compile-2020-pl-94-171-data"
+      id="toc-compile-2020-pl-94-171-data">1. Compile 2020 PL 94-171 data</a>
+    - <a href="#generate-mars-splits-from-2010-data"
+      id="toc-generate-mars-splits-from-2010-data">2. Generate MARS splits
+      from 2010 data</a>
+    - <a href="#create-frankenpop" id="toc-create-frankenpop">3. Create
+      Frankenpop</a>
+    - <a href="#compile" id="toc-compile">4. Compile</a>
+  - <a href="#output" id="toc-output">Output</a>
 
-# Frankenpop
+# Frankenpop/Population Interim Estimates (PIE)
 
 ## About
 
-This project combines population estimates from OFM (particularly SADE
-estimates) with Census 2020 PL 94-171 data to create a internally
-coherent time series of population estimates for Washington with the
-following dimensions:
+Population Interim Estimates (PIE) is the combination of the race/eth
+and geography pattern from Census 2020 redistricting data with the age
+and sex pattern from Census 2010 based SADE estimates from OFM. Once
+combined, the resulting estimates are calibrated to available Census
+2020 based population estimates at the county level.
 
-1.  Year: Single year between 2000 and 2022
+As an interim product, PIE will eventually be replaced by an updated set
+of Small Area Demographic Estimates (SADE) from OFM-- probably in 2024.
 
-2.  Age: Single year between 0 and 99. Grouped categories for 100 - 104,
-    105 - 109, 110+
+Note: Frankenpop was the original (cheekier) name for PIE. References to
+Frankenpop in legacy documentation apply/refer to PIE.
 
-3.  Race/Eth: 62 different combinations of White, Asian, AIAN, Black,
-    NHPI, and Hispanic
+### Dimensions
 
-4.  Geography: 2020 census blocks and geographies constructed of blocks
+\- Single year age
 
-5.  Gender/Sex at birth: Male and Female. Categorization outside the
-    binary is currently not available.
+\- 2020 census blocks and aggregates (e.g. tracts, County, ZIP codes)
 
-**This project/analysis was designed and implemented by Daniel Casey at
-PHSKC-APDE**
+\- Race/ethnicity
+
+\- Sex
+
+\- 2000 - 2022+
+
+### About using PIE
+
+PIE does two things - it replaces existing Census 2010-based population
+estimates from OFM and it provides new Census 2020-bases population
+estimates . As such, estimates using a Census 2010 based estimate (even
+if projected forward) should be replaced/recalculated using PIE. That
+is, all estimates for years between 2000 - 2022 should be updated (or
+computed) to use a PIE denominator. Do not mix and match denominator
+sources.
+
+PIE replaces existing Census 2010 based estimates from OFM. Please use
+PIE going forward and all metrics that used the previous Census 2010
+based estimates. Do not mix and match denominators.
+
+Updating rates and other metrics to use PIE as the denominator may
+change results. This is to be expected and communicated clearly. In
+general, the change can be attributed to PIE and the improved
+denominators.
+
+### Citation
+
+Washington State Population Interim Estimates (PIE), December 2022.
+
+### Contact
+
+Please contact rads@kingcounty.gov with any questions on PIE. Please
+also use this email if you would like access to the underlying data (in
+CSV form).
+
+Other questions (e.g. how to use the PopPIE app, community health
+assessment, CHAT, age adjustment, etc.) should be directed to the DOH
+Center for Epidemiology Practice, Equity, and Assessment (CEPEA) at
+cepea@doh.wa.gov.
 
 ## Code Run Order:
 
@@ -266,16 +308,13 @@ compiled into sets based on geographic type.](compile_results.R)
 
 [Aggregate geographies like ZIP code, school district, legislative
 district, 2020 block group, and 2020 census tract are constructed from
-the block level results](create_additional_geographies.R). All the
-geographies except for ZIPs are constructed out of blocks. Frankenpop
-ZIP code estimates assume a fixed ZIP code map (from \~2021). Block
-level estimates are aggregated to ZIPs based on geographic overlap
-(analogous to the 2010 block to the 2020 block conversion). OFM’s SADE
-ZIP code estimates traditionally use a year specific ZIP code
-definition. Frankenpop will be updated to match this approach once DOH
-is able to provide the conversion scalars.
+the block level results](create_additional_geographies.R).
 
-[Code to generate block to ZIP conversion factors.](blk_to_zip.R)
+Unlike the other geographies, ZIP codes are not directly aggregated from
+blocks. Instead, ZIP codes populations are created proportionally to the
+geographic overlap with census blocks. The ratios/overlaps were
+generated by DOH and cleaned by OFM. The 2021 block to ZIP code mapping
+was applied for 2022.
 
 ## Output
 
@@ -294,4 +333,4 @@ Data dictionary for the block level results:
 | RaceMars97          | Up to 5 digit code indicating race. Structured as \[White\]\[Black\]\[AIAN\]\[Asian\]\[NHPI\]. For example: 10000 indicates White, 10100 indicates White and AIAN, and \[000\]10 indicates NHPI. |
 | Population          | Number of people                                                                                                                                                                                 |
 | Year                | FIPS code for tract                                                                                                                                                                              |
-| AgeGroup            | 0-99 single year of age, 100 for 100-104, 105 for 105 - 109, 110 for 110+                                                                                                                        |
+| AgeGroup            | 0-99 single year of age, 100 for 100-104, 105 for 105 - 109, 110 for 100+                                                                                                                        |
