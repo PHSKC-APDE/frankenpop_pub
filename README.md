@@ -43,6 +43,9 @@
 
 # Frankenpop/Population Interim Estimates (PIE)
 
+## Note
+This repo exists for documentation purposes only. The results are available upon request.
+
 ## About
 
 Population Interim Estimates (PIE) is the combination of the race/eth
